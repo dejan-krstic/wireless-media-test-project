@@ -2,9 +2,7 @@ import '../resources/style/main.scss';
 import dataSet from "./constants/dataSet"
 
 
-function deleteRow(){
-    table.row(this).edit().draw()
-}
+  
 
 $(document).ready(function () {
 
@@ -36,51 +34,34 @@ $(document).ready(function () {
             }
         ]
     } );
+
     var table = $('#example').DataTable( {
         data: dataSet,
         pagingType: "full_numbers",
-        // dom: "Bfrtipl",
-        dom: 'B<"top">rt<"bottom"lp><"clear">',
-        lengthChange: true,
+        dom: "Bfrtip",
         columns: [
-            {data: null, render: function (data, type, row ){
-                return data.DT_RowId.slice(4)
-            }},
+            {data: "DT_RowId" },
             { data: null, render: function ( data, type, row ) {
+                // Combine the first and last names into a single table field
                 return data.first_name+' '+data.last_name;
             } },
             // { data: "position" },
             { data: "office" },
             { data: "extn" },
             { data: "start_date" },
-            { data: null }
+            { data: "salary", render: $.fn.dataTable.render.number( ',', '.', 0, '$' ) }
         ],
-        // select: true,
+        select: true,
         buttons: [
             { extend: "create", editor: editor },
-            // { extend: "edit",   editor: editor },
-            // { extend: "remove", editor: editor }
+            { extend: "edit",   editor: editor },
+            { extend: "remove", editor: editor }
         ],
         columnDefs: [ {
-            targets: 0,
-            data: null,
-        },
-        {
-            targets:  5,
-            orderable: false,
-            defaultContent: 
-            `<div class="dt-buttons"> 
-                            <button class="dt-button buttons-selected buttons-edit" tabindex="0" aria-controls="example">
-                            <span>Edit</span>
-                            </button> 
-                            <button class="dt-button buttons-selected buttons-remove" tabindex="0" aria-controls="example">
-                            <span>Delete</span>
-                            </button> 
-                            </div>`
-                        } ]
-                    } );
-
-
+            "targets":  5,
+            "orderable": false
+          } ]
+    } );
 
     $("#example thead").prepend(
         `<tr>
@@ -109,7 +90,6 @@ $(document).ready(function () {
                                     </tr>`
     );
 
-
     for (let i = 0; i < 3; i++) {
         $(`.table__col-${i}--search`).on('keyup', function () {
             table
@@ -128,27 +108,6 @@ $(document).ready(function () {
                 
         });
     }
-    var myTable = $('#example').DataTable();
- 
-$('.buttons-edit').on( 'click', function (e) {
-    console.log(e.target);
-    console.log($(e.target).closest('tr'));
-    var m = $(e.target).closest('tr');
-    table.row( m[0] ).edit().modal().draw();
-} );
-$('.buttons-remove').on( 'click', function (e) {
-    console.log(e.target);
-    console.log($(e.target).closest('tr'));
-    var m = $(e.target).closest('tr');
-    table.row( m[0] ).remove().draw().update();
-} );
-
-// $('#example tbody').on( 'click', '.buttons-delete', function () {
-//     table
-//         .row( $(this).parents('tr') )
-//         .remove()
-//         .draw();
-// } );
 
 
 

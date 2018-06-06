@@ -1,5 +1,14 @@
 $primary-color: #222;
 
+* {
+    text-align: center;
+}
+
 body {
     color: $primary-color;
+    padding: 30px;
 }
+
+// tfoot {
+//     display: table-header-group;
+// }
