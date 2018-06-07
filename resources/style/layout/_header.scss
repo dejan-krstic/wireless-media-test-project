@@ -1,0 +1,49 @@
+header {
+    opacity: .75;
+    margin: 40px 0 60px!important;
+    border-bottom: 1px dashed #aaa!important;
+}
+
+
+div.page-header__tags {
+    @include clearfix;
+    div{
+        float:left;
+        padding-right: 20px;
+        font-size: 32px;
+        color: $color-grey-dark-3;
+
+        img{
+            width: 33px;
+            height: 30px;
+            vertical-align: top;
+            padding-top: 12px;
+        }
+    }
+}
+
+div.page-header__buttons {
+    padding: 0!important;
+    @include clearfix;
+    .page-header__justify, .page-header__create-new{
+        float:right;
+        padding-left: 20px;
+        font-size: 16px;
+    }
+}
+
+div.page-header__justify--image{
+    position:relative;
+    height: 32px;
+    
+    div {
+        position: absolute;
+        top:0px;
+        right: 44px;
+        height: 32px;
+        width: 2px;
+        background-color: whitesmoke;
+        z-index: 2;
+    }
+}
+

@@ -1,7 +1,7 @@
 export default () => $("#app-container").append(
                                                   `<table id="example" class="display table table-striped table-bordered nowrap" style="width:100%">
                                                       <thead>
-                                                      <tr>
+                                                      <tr class="table-head__search-row">
                                                         <th>
                                                           <input class="table__col-0--search" type="text">
                                                         </th>
@@ -26,12 +26,12 @@ export default () => $("#app-container").append(
                                                         <th></th>
                                                       </tr>   
                                                         <tr>
-                                                            <th>Tag ID</th>
-                                                            <th>Tag Name</th>
-                                                            <th>Tag Type</th>
-                                                            <th>My Feed</th>
-                                                            <th>My Favourites</th>
-                                                            <th>Actions</th>
+                                                            <th class="table-header__tag-id">Tag ID</th>
+                                                            <th class="table-header__tag-name">Tag Name</th>
+                                                            <th class="table-header__tag-type">Tag Type</th>
+                                                            <th class="table-header__my-feed">My Feed</th>
+                                                            <th class="table-header__my-favourites">My Favourites</th>
+                                                            <th class="table-header__actions">Actions</th>
                                                         </tr>
                                                     </thead>
                                                     </table>`

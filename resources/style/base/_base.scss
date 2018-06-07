@@ -1,11 +1,16 @@
+$primary-color: #000;
+
 *,
 *::after,
 *::before {
     margin: 0;
     padding: 0;
     box-sizing: inherit;
-    text-align: center;
-
+    text-align: center;    
+}
+div{
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -14,4 +19,7 @@ html {
 
 body {
     box-sizing: border-box;
+    color: $color-black;
+    background-color: $color-grey-light-2;
+    font-size: $default-font-size;
 }

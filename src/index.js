@@ -3,6 +3,9 @@ import dataSet from "./constants/data_set";
 import tagTypes from "./constants/tag_types";
 import tableHeader from "./components/table_header";
 import pageHeader from "./components/page_header"
+import editIcon from "../resources/assets/icons/16px/006-pencil.png"
+import deleteIcon from "../resources/assets/icons/16px/272-cross.png"
+import checkmarkIcon from "../resources/assets/icons/16px/273-checkmark.png"
 
 $(document).ready(function () {
     const state = {
@@ -63,6 +66,9 @@ $(document).ready(function () {
 
     var table = $('#example').DataTable({
         data: dataSet,
+        fixedColumns:   {
+            heightMatch: 'none'
+        },
         pagingType: "full_numbers",
         dom:
             "<'row'<'col-sm-2'><'col-sm-8'><'col-sm-2 btn-extra' B>>" +
@@ -73,25 +79,30 @@ $(document).ready(function () {
         columns: [
             {
                 data: "DT_RowId",
-                // render: function (data, type, row ){
-                // return data.DT_RowId }
             },
             {
                 data: null,
                 render: function ( data, type, row ) {
-                return `<span class=tag-name>${data.tag_name}</span>`;
+                return `<span class="button-edit">${data.tag_name}</span>`;
              } 
             },
             { data: "tag_type" },
             { 
                 data: null,
                 render: function ( data, type, row ) {
-                    if (data.my_feed == "yes") {
-                        return 5;
-                    } else return 6
+                    if (data.my_feed === "yes") {
+                        return `<i>yes</i><img src="${checkmarkIcon}" alt="checkmark"><i>yes</i>`;
+                    } else return "<i>no</i>"
                 }
             },
-            { data: "my_favourites" },
+            { 
+                data: null,
+                render: function ( data, type, row ) {
+                    if (data.my_favourites === "yes") {
+                        return `<i>yes</i><img src="${checkmarkIcon}" alt="checkmark"><i>yes</i>`;
+                    } else return "<i>no</i>"
+                } 
+            },
             { data: null }
         ],
         // select: true,
@@ -120,12 +131,12 @@ $(document).ready(function () {
                 orderable: false,
                 defaultContent:
                             `<div class="dt-buttons"> 
-                                <button class="dt-button buttons-selected button-edit" tabindex="0" aria-controls="example">
-                                    <span>Edit</span>
-                                </button> 
-                                <button class="dt-button buttons-selected button-remove" tabindex="0" aria-controls="example">
-                                    <span>Delete</span>
-                                </button> 
+                                    <span class="button-edit">
+                                        <img src="${editIcon}" alt="editIcon">
+                                    </span>
+                                    <span class="button-remove">
+                                        <img src="${deleteIcon}" alt="deleteIcon">
+                                    </span>
                             </div>`
             }]
     });
@@ -234,3 +245,11 @@ $(document).ready(function () {
 
 
 
+// `<div class="dt-buttons"> 
+// <button class="dt-button buttons-selected button-edit" tabindex="0" aria-controls="example">
+//     <span>Edit</span>
+// </button> 
+// <button class="dt-button buttons-selected button-remove" tabindex="0" aria-controls="example">
+//     <span>Delete</span>
+// </button> 
+// </div>`
