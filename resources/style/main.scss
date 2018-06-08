@@ -1,5 +1,17 @@
-$primary-color: #222;
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-body {
-    color: $primary-color;
-}
+@import "base/animations";
+@import "base/base";
+@import "base/utilities";
+
+@import "components/pagination";
+@import "components/buttons";
+@import "components/modal-create-new";
+@import "components/modal-edit";
+@import "components/modal-tag-types";
+
+@import "layout/header";
+@import "layout/table";
+
+@import "pages/home";

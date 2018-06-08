@@ -1,0 +1,101 @@
+table {
+    opacity: .7;
+    img {
+        opacity: .6;
+    }
+}
+
+#example_filter {
+    float: left;
+    width: 100%;
+    label {
+        width: 100%;
+        color: $color-grey-dark-3;
+        font-size: 2rem;
+        opacity: .75;
+        input {
+            display: block;
+            border: 1px solid $color-grey-light-3;
+            height: 40px;
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+.table-head__search-row {
+    th {
+        padding: 0 !important;
+        border-bottom: 0 !important;
+        height: 40px;
+        input,
+        select {
+            border: 0;
+            width: 100%;
+            display: inline-block;
+            height: 100%;
+        }
+        select {
+            text-align-last: center;
+        }
+        input {
+            background-image: url("http://www.clker.com/cliparts/w/r/Q/0/x/D/search-icon-light-grey-md.png");
+            background-size: 16px;
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+        }
+
+    }
+    th:last-child {
+        background-color: $color-grey-light-3;
+    }
+}
+
+.table-header__tag-id,
+.table-header__actions {
+    width: 7%;
+    text-align: center;
+}
+
+.table-header__my-feed,
+.table-header__my-favourites {
+    text-align: center;
+    width: 10%;
+}
+
+tbody {
+    tr {
+        td {
+            position:relative;
+            div {
+                @include absCenter;
+                span {
+                    display: inline-block;
+                    text-align: center;
+                }
+            }
+            i{
+                opacity: 0;
+            }
+        }
+        td:nth-child(2), td:nth-child(3){
+            text-align: left;
+            span {
+                @include hoverTransform;                
+                color: $color-blue-primary;
+            }
+        }
+        td:nth-child(6){
+            img:hover{
+                @include hoverTransform;
+            }
+        }
+    }
+}
+
+div.dataTables_length {
+    margin-top: 10px;
+    select {
+        height: 30px;
+    }
+}

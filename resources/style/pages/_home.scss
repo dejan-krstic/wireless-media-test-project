@@ -1,0 +1,11 @@
+.container {
+    padding: 0;
+    @media screen and (min-width: 1440px){
+        width:1300px
+    }
+    @media screen and (min-width: 1880px){
+        width:1840px
+    }
+}
+
+

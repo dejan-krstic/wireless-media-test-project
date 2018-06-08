@@ -1,0 +1,123 @@
+#modal__create-new {
+    color: $color-grey-dark-3;
+    .modal-dialog {
+        margin-top: 80px;
+        width: 950px;
+        .modal-content {
+            border-radius: 4px;
+        }
+    }
+
+
+    img {
+        object-fit: none;
+        height: 200px;
+        width: 100%;
+        opacity: 1;
+    }
+    div.modal-body {
+        background-color: $color-grey-light-2;
+        padding: 40px 40px 5px 40px;
+        text-align: left;
+    }
+    .modal__name-validation{
+        color:red;
+        font-size:1.3rem;
+        text-align: left;
+    }
+    label, .photo{
+        @include fontStyleModal;
+        text-align: left;
+        width: 100%;
+        opacity: .7;
+        margin-bottom: 20px;
+        .small {
+            font-size: 1.3rem;
+        }
+        #modal__tag-name,
+        select,
+        option {
+            text-align: left;
+            padding-left: 10px;
+            width: 100%;
+            display: block;
+            border: 1px solid $color-grey-dark-4;
+            height: 38px;
+            width: 100%;
+            color: $color-grey-dark-3;
+            font-size: 1.6rem;
+            margin: 0;
+        }
+    } 
+    label.modal__tag-name {
+        margin-bottom: 10px;
+
+    }
+    label.modal__my-favourites, label.modal__my-feed {
+        float: left;
+        width: 15%;
+    }
+    .photo {
+        margin: 0;
+        padding-top:10px;
+    }
+    
+    div.fileinput {
+        position: relative;
+        span.btn{
+            @include fontStyleModal;
+            @include absCenter;
+            opacity: .7;
+            top:40%;
+            border: 0;
+            span.fileinput-new{
+                text-align: center!important;
+            }
+            img{                
+                width:40px;
+                height:40px;
+                object-fit: cover;
+            }
+        }
+    }
+    #modal__photo-buttons{
+        // visibility: hidden;
+    }
+    #image-input {
+        opacity: 0;
+    }
+    
+    .fileinput-preview.thumbnail {
+        width: 100%;
+        height: 200px; // background-color: $color-white;
+        padding: 0;
+        border-radius: 0;
+        border: 1px dashed $color-grey-dark-4;
+    }
+    .modal__loading {
+        @include absCenter;
+        @include fontStyleModal;
+        text-align: left;
+        top:45%;
+        padding: 0;
+        width: 500px;
+        height:5px;
+        // display: none;
+    }
+    .progress {
+        height:5px;
+        opacity: .7;
+    }
+
+
+    .fileinput.fileinput-new {
+        width: 100%;
+    }
+
+    div.modal-footer{
+        padding: 18px 40px;
+
+    }
+}
+
+

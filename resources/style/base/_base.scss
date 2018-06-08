@@ -1,0 +1,29 @@
+$primary-color: #000;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    text-align: center;    
+}
+div{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    box-sizing: border-box;
+    color: $color-black;
+    background-color: $color-grey-light-2;
+    font-size: $default-font-size;
+}
+
+a:hover, button:hover {
+    @include hoverTransform;    
+}
