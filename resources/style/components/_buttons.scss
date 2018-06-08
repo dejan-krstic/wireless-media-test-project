@@ -11,11 +11,20 @@ button.modal__cancel-button {
     color: $color-grey-dark-3;
     background-color: $color-grey-light-3;
     border-bottom: 3px solid darken($color: $color-grey-light-3, $amount: 30%);
+    &:hover, &:active {
+        color: $color-grey-dark-3;
+        background-color: $color-grey-light-3;
+        border-bottom: 3px solid darken($color: $color-grey-light-3, $amount: 30%);
+    }
 
 }
 button.modal__submit-button {
     color: $color-white;
     background-color: $color-teal-primary;
     border-bottom: 3px solid darken($color: $color-teal-primary, $amount: 30%);
+    &:hover, &:active {
+        background-color: $color-teal-primary;
+        border-bottom: 3px solid darken($color: $color-teal-primary, $amount: 30%);
+    }
 
 }

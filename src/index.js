@@ -13,7 +13,7 @@ import nextIcon from "../resources/assets/icons/48px/285-play3.png";
 import clearModal from "./utils/clear_modal";
 import progressBar from "./components/progress_bar";
 import modalCreateNewTag from "./components/modal_create_new_tag";
-import modalAddTagType from "./components/modal_tag_types"
+import modalAddTagType from "./components/modal_tag_types";
 
 
 $(document).ready(function () {
@@ -179,7 +179,7 @@ $(document).ready(function () {
     $('#example tbody').on('click', '.button-edit', function () {   //   event delegation because of DataTables pagination bug
         table.row(this.closest('tr')).edit();
     });
-    $('#example tbody').on('click', '.button-remove', function () {   //   event delegation because of DataTables pagination bug
+    $('#example tbody').on('click', '.button-remove', function () {   
         table.row(this.closest('tr')).delete()
     });
 
@@ -239,38 +239,35 @@ $(document).ready(function () {
 
     $('#modal__create-new').on('hidden.bs.modal', function () {
         clearModal();
+        $("div#modal__progress-container").empty();
     })
 
     $("#image-input").on("change", function () {
         $("#modal__add-image-container").addClass('display-none')
         progressBar();
-        $('.progress-bar').animate({ "width": '99%' }, 1000);            //  most of the time doesn't work properly on dev server but exists  
-        console.log("This is the moment animation should start");       // when uploading very large pictures you can clearly console.log periods
-        $("div.fileinput-preview").on("DOMNodeInserted", function () {   
-            $("div.fileinput-preview>img").on("load", function () {
+        $('.progress-bar').animate({ "width": '99%' }, 1000);                 //  most of the time doesn't work properly on dev server but exists  
+        console.log("This is the moment animation should start");            // when uploading very large pictures you can clearly console.log period
+        $("div.fileinput-preview").on("DOMNodeInserted", function () {      //  Progress bar can be seen if you try to replace the picture, and then not choose                                                               
+            $("div.fileinput-preview>img").on("load", function () {        // anonother
                 $("div#modal__progress-container").empty();
                 console.log("And this is the moment of picture upload and progress bar destruction");
             });
         });
     })
 
+// turning regular pagination into icons
 
-
-    console.log($("a#example_first>img").length );
+const paginationIconInserter = () => {
     $("a#example_first").empty().html(`<img id="first-icon" class="pagination__icons" src="${firstIcon}" alt="first">`);
     $("a#example_previous").empty().html(`<img class="pagination__icons" src="${previousIcon}" alt="previous">`);
     $("a#example_next").empty().html(`<img class="pagination__icons" src="${nextIcon}" alt="next">`);
     $("a#example_last").empty().html(`<img img id="last-icon" class="pagination__icons" src="${lastIcon}" alt="last">`);
-    console.log($("a.paginate_button>img").length );
-    
-    var marker = false;
-    $("#example_paginate").on("DOMNodeInserted", function () { 
-        console.log($("a.paginate_button>img").length < 4 );
-        if ($("a#example_first>img").length>1) return;
-        $("a#example_first").empty().html(`<img id="first-icon" class="pagination__icons" src="${firstIcon}" alt="first">`);
-        $("a#example_previous").empty().html(`<img class="pagination__icons" src="${previousIcon}" alt="previous">`);
-        $("a#example_next").empty().html(`<img class="pagination__icons" src="${nextIcon}" alt="next">`);
-        $("a#example_last").empty().html(`<img img id="last-icon" class="pagination__icons" src="${lastIcon}" alt="last">`);
-    })
+    }
 
+    paginationIconInserter()
+    //                                                                  // problem is with DataTables, they keep refreshing pagination control, and icons are lost
+    // $("#example_paginate").on("DOMNodeInserted", function () {      // I tried to solve the problem with event listener but it keeps firing on every change, even
+    //     if ($("a.paginate_button>img").length>3) return;           // those we make. I could try to throttle the function with the help of lodash library, 
+    //         // paginationIconInserter()                           // or to destroy pagination attributes so DataTables couldn't handle them, but both solutions
+    // })                                                           // aren't very good
 });

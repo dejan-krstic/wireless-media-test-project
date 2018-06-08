@@ -50,7 +50,7 @@ module.exports = {
     },
 	plugins: [
         new HtmlWebpackPlugin({
-            title: 'DK Boilerplate',
+            title: 'Wireless Media Project',
             template: 'resources/ejs/index-dev.ejs'
         }),
         new FaviconsWebpackPlugin('./resources/assets/img/octopod.png')

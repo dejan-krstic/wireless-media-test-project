@@ -52,7 +52,7 @@ module.exports = {
     },
 	plugins: [
         new HtmlWebpackPlugin({
-            title: 'DK Boilerplate',
+            title: 'Wireless Media Project',
             template: 'resources/ejs/index-prod.ejs',
             filename: "index.html"
         }),

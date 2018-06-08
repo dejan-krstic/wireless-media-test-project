@@ -16,8 +16,8 @@ export default () => $("body").append(
           </label>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success modal__cancel-button" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-success modal__submit-button" id="modal__add-tag-type--submit">Add type</button>
+          <button type="button" class="btn btn-default modal__cancel-button" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-info modal__submit-button" id="modal__add-tag-type--submit">Add type</button>
         </div>
       </div>
     </div>
