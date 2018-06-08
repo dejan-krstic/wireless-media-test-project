@@ -1,7 +1,7 @@
 header {
     opacity: .75;
     margin: 40px 0 60px!important;
-    border-bottom: 1px dashed #aaa!important;
+    border-bottom: 1px dashed $color-grey-dark-4!important;
 }
 
 
@@ -23,8 +23,11 @@ div.page-header__tags {
 }
 
 div.page-header__buttons {
+    img:hover {
+        @include hoverTransform;    
+    }
     padding: 0!important;
-    @include clearfix;
+    @include clearfix;    
     .page-header__justify, .page-header__create-new{
         float:right;
         padding-left: 20px;
@@ -35,6 +38,7 @@ div.page-header__buttons {
 div.page-header__justify--image{
     position:relative;
     height: 32px;
+
     
     div {
         position: absolute;

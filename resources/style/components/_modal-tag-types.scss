@@ -1,0 +1,22 @@
+#modal__add-tag-type {
+    @extend #modal__create-new;
+    @include fontStyleModal;
+    
+    input {
+        text-align: left;
+        width: 100%;
+        display: block;
+        border: 1px solid $color-grey-dark-4;
+        height: 38px;
+        width: 100%;
+        color: $color-grey-dark-3;
+        margin: 0;
+        padding-left: 10px;
+    }
+    .modal__add-tag-type--success{
+        height: 38px;
+    }
+    .btn-default {
+        float: left;
+    }
+}

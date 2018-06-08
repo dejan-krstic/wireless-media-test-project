@@ -1,0 +1,31 @@
+div#example_paginate{
+    a         {   padding: 5px 0px;
+    }
+    a.disabled {
+        img.pagination__icons {
+            opacity: .2;
+        }
+    }
+    span {
+        margin: 0 5px;
+        a {
+            background-color: white;
+            margin: 0 4px;
+            padding: 5px 12px;
+
+        }
+        a.current {
+            background-color: green!important;
+        }
+
+    }
+} 
+
+#first-icon, #last-icon {
+    width: 50px;
+}
+.pagination__icons {
+    opacity: .65;
+    height: 30px;
+    width: 30px;
+}

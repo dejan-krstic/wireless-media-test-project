@@ -1,0 +1,10 @@
+.visibility-hidden {
+    visibility: hidden;
+}
+.display-none {
+    display: none;
+}
+.opacity-down {
+    animation: decreaseOpacity 7s ease-out;
+    animation-fill-mode: forwards
+}
