@@ -98,7 +98,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, row) {
-                    if (data.my_feed === "yes") {
+                    if (data.my_feed === "yes" || data.my_feed[0] === "yes") {
                         return `<i>yes</i><img src="${checkmarkIcon}" alt="checkmark"><i>yes</i>`;
                     } else return "<i>no</i>"
                 }
@@ -106,7 +106,7 @@ $(document).ready(function () {
             {
                 data: null,
                 render: function (data, type, row) {
-                    if (data.my_favourites === "yes") {
+                    if (data.my_favourites === "yes" || data.my_favourites[0] === "yes" ) {
                         return `<i>yes</i><img src="${checkmarkIcon}" alt="checkmark"><i>yes</i>`;
                     } else return "<i>no</i>"
                 }
