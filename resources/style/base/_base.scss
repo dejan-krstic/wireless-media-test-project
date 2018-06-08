@@ -23,3 +23,7 @@ body {
     background-color: $color-grey-light-2;
     font-size: $default-font-size;
 }
+
+a:hover, button:hover {
+    @include hoverTransform;    
+}

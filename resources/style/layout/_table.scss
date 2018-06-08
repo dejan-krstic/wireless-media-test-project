@@ -1,5 +1,8 @@
 table {
-    opacity: .65;
+    opacity: .7;
+    img {
+        opacity: .6;
+    }
 }
 
 #example_filter {
@@ -41,6 +44,7 @@ table {
             background-repeat: no-repeat;
             background-position: right 12px center;
         }
+
     }
     th:last-child {
         background-color: $color-grey-light-3;
@@ -77,8 +81,21 @@ tbody {
         td:nth-child(2), td:nth-child(3){
             text-align: left;
             span {
+                @include hoverTransform;                
                 color: $color-blue-primary;
             }
         }
+        td:nth-child(6){
+            img:hover{
+                @include hoverTransform;
+            }
+        }
+    }
+}
+
+div.dataTables_length {
+    margin-top: 10px;
+    select {
+        height: 30px;
     }
 }

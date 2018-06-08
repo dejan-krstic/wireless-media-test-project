@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.5/css/select.bootstrap4.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.5.1/sl-1.2.5/datatables.min.css"
+  />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="../../vendor/editor/css/dataTables.editor.css">
+  <link rel="stylesheet" type="text/css" href="../../vendor/editor/css/editor.bootstrap.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="../../vendor/editor/css/editor.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="../../vendor/jasny-bootstrap/css/jasny-bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="">
+
+
+</head>
+
+<body>
+  <div id="app-container" class="container">
+
+  </div>
+
+  <!-- <button type="button" class="btn btn-primary btn-lg modal-button" data-toggle="modal" data-target="#modal__create-new">
+      Launch demo modal
+    </button> -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal__create-new" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title" id="myModalLabel">Tag</h3>
+        </div>
+        <div class="modal-body">
+          <label for="#modal__tag-name" class="modal__tag-name">Name *
+            <br/>
+            <input type="text" name="tekst" id="modal__tag-name">
+          </label>
+          <br />
+          <label for="#modal__my-feed" class="modal__my-feed">
+            <input type="checkbox" name="My Feed" id="modal__my-feed" value="my-feed"> <span>My Feed</span>
+          </label>
+          <label for="#modal__my-favourites" class="modal__my-favourites">
+            <input type="checkbox" name="My Favourites" id="modal__my-favourites" value="my-favourites"> <span> My Favourites</span>
+          </label>
+          <label for="#modal__tag-type" class="modal__tag-type">
+            Type<span class="small" > (Changing tag type will affect entire tag, loss of information may occur)</span>
+            <br/>
+            <select name="modal__tag-type" id="modal__tag-type">
+              <option value=""></option>
+              <option value="Košarkaški klub">Košarkaški klub</option>
+              <option value="Fudbalski klub">Fudbalski klub</option>
+              <option value="Košarkaš">Košarkaš</option>
+              <option value="Fudbaler">Fudbaler</option>
+              <option value="Teniser">Teniser</option>
+              <option value="Takmičenje">Takmičenje</option>
+            </select>
+          </label>
+          <!-- image upload -->
+          <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div>
+                          <!-- odavde uzimamo dugme i smestamo ga u div u kome se prikazuje slika -->
+                          <span class="btn btn-default btn-file">
+                            <span class="fileinput-new">Add photo</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" name="..." id="image-input">
+                          </span>
+                          <!-- odavde uzimamo dugme i smestamo ga u div u kome se prikazuje slika -->
+              
+                          <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div>
+              <div class="photo">Photo</div>
+            <div class="fileinput-preview thumbnail" data-trigger="fileinput">
+              <!-- progress bar -->
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                  <span class="sr-only">70% Complete</span>
+                </div>
+              </div>
+            
+              <!-- progress bar -->
+              <!-- odavde smo uzeli dugme i smestamo ga u div u kome se prikazuje slika -->
+
+              <!-- odavde smo uzeli dugme i smestamo ga u div u kome se prikazuje slika -->
+
+            </div>
+          </div>
+          <!-- progress bar -->
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only">70% Complete</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="modal-reset">Close</button>
+          <button type="button" class="btn btn-primary" id="modal-submit" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <!-- <script type="text/javascript" src="../../vendor/editor/js/dataTables.editor.min.js"></script> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+  <script type="text/javascript" src=""></script>
+  <script type="text/javascript" src=""></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.5.1/sl-1.2.5/datatables.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>
+  <script type="text/javascript" src="../../vendor/editor/js/dataTables.editor.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap4.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../vendor/editor/js/editor.bootstrap4.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="../../vendor/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="../../src/index.js"></script> -->
+
+
+</body>
+
+</html>
