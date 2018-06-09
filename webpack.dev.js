@@ -21,7 +21,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env', 'react']
+                        presets: ['env']
                     }
                 }
             },
@@ -53,6 +53,6 @@ module.exports = {
             title: 'Wireless Media Project',
             template: 'resources/ejs/index-dev.ejs'
         }),
-        new FaviconsWebpackPlugin('./resources/assets/img/octopod.png')
+        new FaviconsWebpackPlugin('./resources/assets/icons/64px/055-price-tags.png')
     ]
 };

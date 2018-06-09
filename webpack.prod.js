@@ -38,6 +38,12 @@ module.exports = {
                     },
 					{ 
                         loader: "sass-loader" 
+                    },
+                    { 
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: () => [require('autoprefixer')]
+                          }
                     }
 				]
             },
@@ -63,6 +69,6 @@ module.exports = {
         new UglifyJsPlugin({
             sourceMap: true
         }),
-        new FaviconsWebpackPlugin('./resources/assets/img/octopod.png')
+        new FaviconsWebpackPlugin('./resources/assets/icons/64px/055-price-tags.png')
     ]
 };

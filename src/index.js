@@ -54,10 +54,10 @@ $(document).ready(function () {
     });
 
 
-    editor.on('preSubmit', function (e, o, action) {
-        if (action !== 'remove') {
-            var tagName = this.field('tag_name');
-            if (!tagName.isMultiValue()) {
+    editor.on('preSubmit', function (e, o, action) {           //  edit tag validation, DataTables script only slightly adjusted
+        if (action !== 'remove') {                            // every modal has different validation variant 
+            var tagName = this.field('tag_name');             
+            if (!tagName.isMultiValue()) {                  // here I was using built-in DataTables edit modal
                 if (!tagName.val()) {
                     tagName.error("A tag name must be given");
                 }
@@ -78,9 +78,9 @@ $(document).ready(function () {
             heightMatch: 'none'
         },
         pagingType: "full_numbers",
-        dom:
-            "<'row'<'col-sm-2'><'col-sm-8'><'col-sm-2 btn-extra' B>>" +
-            "<'row'<'col-sm-3'f><'col-sm-8'><'col-sm-1'>>" +
+        dom:                                                                      // DataTables built in syntax for page layout
+            "<'row'<'col-sm-2'><'col-sm-8'><'col-sm-2 btn-extra' B>>" +          // standard html would be accepted also
+            "<'row'<'col-sm-3'f><'col-sm-8'><'col-sm-1'>>" +                    // but this was interesting to learn and use
             "<'row'<'col-sm-12'tr>>" +
             "<'row'<'col-sm-5'l><'col-sm-7'p>>",
         lengthChange: true,
@@ -144,8 +144,8 @@ $(document).ready(function () {
             }]
     });
 
-    const nameValidation = () => {
-        const name = $("#modal__tag-name").val().split(' ').join('')
+    const nameValidation = () => {                                            // name validation for main modal
+        const name = $("#modal__tag-name").val().split(' ').join('')     
         if (name) {
             return true;
         }
@@ -157,7 +157,7 @@ $(document).ready(function () {
         $(".modal__name-validation").addClass("visibility-hidden")
     })
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 3; i++) {                                     // search bars for first three columns
         $(`.table__col-${i}--search`).on('keyup', function () {
             table
                 .columns(i)
@@ -166,7 +166,7 @@ $(document).ready(function () {
         });
     }
 
-    for (let i = 3; i < 5; i++) {
+    for (let i = 3; i < 5; i++) {                                     // filter for last two data columns
         $(`.table__col-${i}--select`).on('change', function () {
             table
                 .columns(i)
@@ -177,19 +177,19 @@ $(document).ready(function () {
     }
 
     $('#example tbody').on('click', '.button-edit', function () {   //   event delegation because of DataTables pagination bug
-        table.row(this.closest('tr')).edit();
-    });
+        table.row(this.closest('tr')).edit();                      
+    });                                                            
     $('#example tbody').on('click', '.button-remove', function () {   
         table.row(this.closest('tr')).delete()
     });
 
-    $('#modal__create-new').on('shown.bs.modal', function () {
+    $('#modal__create-new').on('shown.bs.modal', function () {        
         $("#modal__add-image-container").removeClass('display-none')
 
     })
 
-    $('#modal-submit').on('click', function () {
-        if (!nameValidation()) {
+    $('#modal-submit').on('click', function () {                // collecting data from from add-new-tag modal 
+        if (!nameValidation()) {                               // and creating new row
             return
         }
         const DT_RowId = ++state.lastID
@@ -215,24 +215,24 @@ $(document).ready(function () {
         $('#modal__create-new').modal('hide');
     });
 
-    $("#modal__add-tag-type--submit").on('click', function () {
-        $(".modal__add-tag-type--success").empty();
-        let addTagType = $("#modal__add-tag-type--name").val();
+    $("#modal__add-tag-type--submit").on('click', function () {               //  collecting, validating data and creating new tag type 
+        $(".modal__add-tag-type--success").empty();                             
+        let addTagType = $("#modal__add-tag-type--name").val();             
         if (!addTagType.split(" ").join("")) {
             $(".modal__add-tag-type--success").append("<p class='opacity-down'>Tag type is not valid<p>");
             return
         }
-        if (state.tagTypes.includes(addTagType)) {
+        if (state.tagTypes.includes(addTagType)) {                         // validation here checks if we already have same tag type
             $(".modal__add-tag-type--success").append("<p class='opacity-down'>Tag type with the same name already exists<p>");
             return
         }
         state.tagTypes.push(addTagType);
-        editor.field('tag_type').update(state.tagTypes);
+        editor.field('tag_type').update(state.tagTypes);                 
         $("select#modal__tag-type").append(`<option value="${addTagType}">${addTagType}</option>`);
         $(".modal__add-tag-type--success").append("<p class='opacity-down'>You successfully created new tag type<p>");
     })
 
-    $('#modal__add-tag-type--submit').on('hidden.bs.modal', function () {
+    $('#modal__add-tag-type').on('hidden.bs.modal', function () {          
         $(".modal__add-tag-type--success").empty();
         $("#modal__add-tag-type--name").val("");
     })
@@ -248,7 +248,7 @@ $(document).ready(function () {
         $('.progress-bar').animate({ "width": '99%' }, 1000);                 //  most of the time doesn't work properly on dev server but exists  
         console.log("This is the moment animation should start");            // when uploading very large pictures you can clearly console.log period
         $("div.fileinput-preview").on("DOMNodeInserted", function () {      //  Progress bar can be seen if you try to replace the picture, and then not choose                                                               
-            $("div.fileinput-preview>img").on("load", function () {        // anonother
+            $("div.fileinput-preview>img").on("load", function () {        // another
                 $("div#modal__progress-container").empty();
                 console.log("And this is the moment of picture upload and progress bar destruction");
             });
@@ -258,10 +258,10 @@ $(document).ready(function () {
 // turning regular pagination into icons
 
 const paginationIconInserter = () => {
-    $("a#example_first").empty().html(`<img id="first-icon" class="pagination__icons" src="${firstIcon}" alt="first">`);
-    $("a#example_previous").empty().html(`<img class="pagination__icons" src="${previousIcon}" alt="previous">`);
-    $("a#example_next").empty().html(`<img class="pagination__icons" src="${nextIcon}" alt="next">`);
-    $("a#example_last").empty().html(`<img img id="last-icon" class="pagination__icons" src="${lastIcon}" alt="last">`);
+    $("a#example_first").html(`<img id="first-icon" class="pagination__icons" src="${firstIcon}" alt="first">`);
+    $("a#example_previous").html(`<img class="pagination__icons" src="${previousIcon}" alt="previous">`);
+    $("a#example_next").html(`<img class="pagination__icons" src="${nextIcon}" alt="next">`);
+    $("a#example_last").html(`<img img id="last-icon" class="pagination__icons" src="${lastIcon}" alt="last">`);
     }
 
     paginationIconInserter()

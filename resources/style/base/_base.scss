@@ -24,6 +24,14 @@ body {
     font-size: $default-font-size;
 }
 
-a:hover, button:hover {
+a:hover {
     @include hoverTransform;    
+}
+a.disabled:hover {
+    transform: scale(1);
+}
+
+button:hover {
+    @include hoverTransform;  
+    transform: scale(1.1);  
 }

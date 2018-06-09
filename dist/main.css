@@ -25,10 +25,19 @@ body {
   background-color: #efefef;
   font-size: 1.5rem; }
 
-a:hover, button:hover {
+a:hover {
   cursor: pointer;
   transform: scale(1.2);
   transition: .4s; }
+
+a.disabled:hover {
+  transform: scale(1); }
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: .4s;
+  transform: scale(1.1); }
 
 .visibility-hidden {
   visibility: hidden; }
@@ -289,9 +298,10 @@ div.page-header__justify--image {
     background-color: whitesmoke;
     z-index: 2; }
 
-table {
-  opacity: .7; }
-  table img {
+table#example {
+  opacity: .7;
+  border-bottom: 0; }
+  table#example img {
     opacity: .6; }
 
 #example_filter {
