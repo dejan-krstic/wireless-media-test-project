@@ -1,0 +1,394 @@
+@keyframes decreaseOpacity {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-align: center; }
+
+div {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  color: #000;
+  background-color: #efefef;
+  font-size: 1.5rem; }
+
+a:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: .4s; }
+
+a.disabled:hover {
+  transform: scale(1); }
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: .4s;
+  transform: scale(1.1); }
+
+.visibility-hidden {
+  visibility: hidden; }
+
+.display-none {
+  display: none; }
+
+.opacity-down {
+  animation: decreaseOpacity 7s ease-out;
+  animation-fill-mode: forwards; }
+
+div#example_paginate a {
+  padding: 5px 0px; }
+
+div#example_paginate a.disabled img.pagination__icons {
+  opacity: .2; }
+
+div#example_paginate span {
+  margin: 0 5px; }
+  div#example_paginate span a {
+    background-color: white;
+    margin: 0 4px;
+    padding: 5px 12px; }
+  div#example_paginate span a.current {
+    background-color: green !important; }
+
+#first-icon, #last-icon {
+  width: 50px; }
+
+.pagination__icons {
+  opacity: .65;
+  height: 30px;
+  width: 30px; }
+
+button.modal__cancel-button, button.modal__submit-button, .DTE_Action_Edit .btn.btn-default {
+  border-radius: 0px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  height: 50px;
+  width: 150px;
+  border: 0; }
+
+button.modal__cancel-button {
+  float: left;
+  color: #444;
+  background-color: #ddd;
+  border-bottom: 3px solid #919191; }
+  button.modal__cancel-button:hover, button.modal__cancel-button:active {
+    color: #444;
+    background-color: #ddd;
+    border-bottom: 3px solid #919191; }
+
+button.modal__submit-button, .DTE_Action_Edit .btn.btn-default {
+  color: #f5f5f5;
+  background-color: #2eb8b8;
+  border-bottom: 3px solid #0f3e3e; }
+  button.modal__submit-button:hover, .DTE_Action_Edit .btn.btn-default:hover, button.modal__submit-button:active, .DTE_Action_Edit .btn.btn-default:active {
+    background-color: #2eb8b8;
+    border-bottom: 3px solid #0f3e3e; }
+
+#modal__create-new, #modal__add-tag-type {
+  color: #444; }
+  #modal__create-new .modal-dialog, #modal__add-tag-type .modal-dialog {
+    margin-top: 80px;
+    width: 950px; }
+    #modal__create-new .modal-dialog .modal-content, #modal__add-tag-type .modal-dialog .modal-content {
+      border-radius: 4px; }
+  #modal__create-new img, #modal__add-tag-type img {
+    object-fit: none;
+    height: 200px;
+    width: 100%;
+    opacity: 1; }
+  #modal__create-new div.modal-body, #modal__add-tag-type div.modal-body {
+    background-color: #efefef;
+    padding: 40px 40px 5px 40px;
+    text-align: left; }
+  #modal__create-new .modal__name-validation, #modal__add-tag-type .modal__name-validation {
+    color: red;
+    font-size: 1.3rem;
+    text-align: left; }
+  #modal__create-new label, #modal__add-tag-type label, #modal__create-new .photo, #modal__add-tag-type .photo {
+    color: #444;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+    opacity: .7;
+    margin-bottom: 20px; }
+    #modal__create-new label .small, #modal__add-tag-type label .small, #modal__create-new .photo .small, #modal__add-tag-type .photo .small {
+      font-size: 1.3rem; }
+    #modal__create-new label #modal__tag-name, #modal__add-tag-type label #modal__tag-name,
+    #modal__create-new label select,
+    #modal__add-tag-type label select,
+    #modal__create-new label option,
+    #modal__add-tag-type label option, #modal__create-new .photo #modal__tag-name, #modal__add-tag-type .photo #modal__tag-name,
+    #modal__create-new .photo select,
+    #modal__add-tag-type .photo select,
+    #modal__create-new .photo option,
+    #modal__add-tag-type .photo option {
+      text-align: left;
+      padding-left: 10px;
+      width: 100%;
+      display: block;
+      border: 1px solid #aaa;
+      height: 38px;
+      width: 100%;
+      color: #444;
+      font-size: 1.6rem;
+      margin: 0; }
+  #modal__create-new label.modal__tag-name, #modal__add-tag-type label.modal__tag-name {
+    margin-bottom: 10px; }
+  #modal__create-new label.modal__my-favourites, #modal__add-tag-type label.modal__my-favourites, #modal__create-new label.modal__my-feed, #modal__add-tag-type label.modal__my-feed {
+    float: left;
+    width: 15%; }
+  #modal__create-new .photo, #modal__add-tag-type .photo {
+    margin: 0;
+    padding-top: 10px; }
+  #modal__create-new div.fileinput, #modal__add-tag-type div.fileinput {
+    position: relative; }
+    #modal__create-new div.fileinput span.btn, #modal__add-tag-type div.fileinput span.btn {
+      color: #444;
+      font-size: 1.6rem;
+      font-weight: 500;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      opacity: .7;
+      top: 40%;
+      border: 0; }
+      #modal__create-new div.fileinput span.btn span.fileinput-new, #modal__add-tag-type div.fileinput span.btn span.fileinput-new {
+        text-align: center !important; }
+      #modal__create-new div.fileinput span.btn img, #modal__add-tag-type div.fileinput span.btn img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover; }
+  #modal__create-new #image-input, #modal__add-tag-type #image-input {
+    opacity: 0; }
+  #modal__create-new .fileinput-preview.thumbnail, #modal__add-tag-type .fileinput-preview.thumbnail {
+    width: 100%;
+    height: 200px;
+    padding: 0;
+    border-radius: 0;
+    border: 1px dashed #aaa; }
+  #modal__create-new .modal__loading, #modal__add-tag-type .modal__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: #444;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: left;
+    top: 45%;
+    padding: 0;
+    width: 500px;
+    height: 5px; }
+  #modal__create-new .progress, #modal__add-tag-type .progress {
+    height: 5px;
+    opacity: .7; }
+  #modal__create-new .fileinput.fileinput-new, #modal__add-tag-type .fileinput.fileinput-new {
+    width: 100%; }
+  #modal__create-new div.modal-footer, #modal__add-tag-type div.modal-footer {
+    padding: 18px 40px; }
+
+.modal-dialog {
+  margin-top: 80px;
+  width: 950px; }
+  .modal-dialog .modal-content {
+    border-radius: 4px; }
+
+.DTE_Action_Edit {
+  opacity: .7;
+  color: #444;
+  font-size: 1.6rem;
+  font-weight: 500; }
+  .DTE_Action_Edit h5 {
+    font-size: 2.5rem; }
+  .DTE_Action_Edit .modal-body {
+    background-color: #efefef;
+    padding: 40px 40px 5px 40px;
+    text-align: left; }
+  .DTE_Action_Edit input#DTE_field_tag_name, .DTE_Action_Edit input.STE_Field_InputControl {
+    text-align: left;
+    width: 100%;
+    display: block;
+    border: 1px solid #aaa;
+    height: 38px;
+    width: 800px !important;
+    color: #444;
+    margin: 0;
+    padding-left: 10px; }
+
+#modal__add-tag-type {
+  color: #444;
+  font-size: 1.6rem;
+  font-weight: 500; }
+  #modal__add-tag-type input {
+    text-align: left;
+    width: 100%;
+    display: block;
+    border: 1px solid #aaa;
+    height: 38px;
+    width: 100%;
+    color: #444;
+    margin: 0;
+    padding-left: 10px; }
+  #modal__add-tag-type .modal__add-tag-type--success {
+    height: 38px; }
+  #modal__add-tag-type .btn-default {
+    float: left; }
+
+header {
+  opacity: .75;
+  margin: 40px 0 60px !important;
+  border-bottom: 1px dashed #aaa !important; }
+
+div.page-header__tags::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+div.page-header__tags div {
+  float: left;
+  padding-right: 20px;
+  font-size: 32px;
+  color: #444; }
+  div.page-header__tags div img {
+    width: 33px;
+    height: 30px;
+    vertical-align: top;
+    padding-top: 12px; }
+
+div.page-header__buttons {
+  padding: 0 !important; }
+  div.page-header__buttons img:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: .4s; }
+  div.page-header__buttons::after {
+    content: "";
+    display: table;
+    clear: both; }
+  div.page-header__buttons .page-header__justify, div.page-header__buttons .page-header__create-new {
+    float: right;
+    padding-left: 20px;
+    font-size: 16px; }
+
+div.page-header__justify--image {
+  position: relative;
+  height: 32px; }
+  div.page-header__justify--image div {
+    position: absolute;
+    top: 0px;
+    right: 44px;
+    height: 32px;
+    width: 2px;
+    background-color: whitesmoke;
+    z-index: 2; }
+
+table#example {
+  opacity: .7;
+  border-bottom: 0; }
+  table#example img {
+    opacity: .6; }
+
+#example_filter {
+  float: left;
+  width: 100%; }
+  #example_filter label {
+    width: 100%;
+    color: #444;
+    font-size: 2rem;
+    opacity: .75; }
+    #example_filter label input {
+      display: block;
+      border: 1px solid #ddd;
+      height: 40px;
+      width: 100%;
+      margin: 0; }
+
+.table-head__search-row th {
+  padding: 0 !important;
+  border-bottom: 0 !important;
+  height: 40px; }
+  .table-head__search-row th input,
+  .table-head__search-row th select {
+    border: 0;
+    width: 100%;
+    display: inline-block;
+    height: 100%; }
+  .table-head__search-row th select {
+    text-align-last: center; }
+  .table-head__search-row th input {
+    background-image: url("http://www.clker.com/cliparts/w/r/Q/0/x/D/search-icon-light-grey-md.png");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: right 12px center; }
+
+.table-head__search-row th:last-child {
+  background-color: #ddd; }
+
+.table-header__tag-id,
+.table-header__actions {
+  width: 7%;
+  text-align: center; }
+
+.table-header__my-feed,
+.table-header__my-favourites {
+  text-align: center;
+  width: 10%; }
+
+tbody tr td {
+  position: relative; }
+  tbody tr td div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%); }
+    tbody tr td div span {
+      display: inline-block;
+      text-align: center; }
+  tbody tr td i {
+    opacity: 0; }
+
+tbody tr td:nth-child(2), tbody tr td:nth-child(3) {
+  text-align: left; }
+  tbody tr td:nth-child(2) span, tbody tr td:nth-child(3) span {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: .4s;
+    color: #337ab7; }
+
+tbody tr td:nth-child(6) img:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: .4s; }
+
+div.dataTables_length {
+  margin-top: 10px; }
+  div.dataTables_length select {
+    height: 30px; }
+
+.container {
+  padding: 0; }
+  @media screen and (min-width: 1440px) {
+    .container {
+      width: 1300px; } }
+  @media screen and (min-width: 1880px) {
+    .container {
+      width: 1840px; } }
+
+
+/*# sourceMappingURL=main.css.map*/
