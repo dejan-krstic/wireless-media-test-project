@@ -8,6 +8,7 @@ Application supports sorting and searching/filtering by every column, creating n
 Application doesn't have back-end, after page reloads entered data resets (prerequisite).
   
 ### [Feel free to checkout GitHub Pages demo](https://dejan-krstic.github.io/wireless-media-test-project/)
+Currently not working since Datatables trial expired.
 
 
 ## Showcasing
