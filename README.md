@@ -13,7 +13,7 @@ Application doesn't have back-end, after page reloads entered data resets (prere
 - DataTables
 - webpack.dev.js & prod.js
 - EJS templates for creating index.html 
-- Fully responsive, with Bootdtrap
+- Fully responsive, with Bootstrap
 
 ## Stack
 ### Language: 
